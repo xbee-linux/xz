@@ -1,0 +1,25 @@
+schema-version: 1.0
+
+type: builder
+
+
+const:
+  srcDir: /usr/src
+  exportDir: /opt/xz
+
+
+var:
+  version: 5.2.5
+
+provision:
+  - shell: "{{ .templates }}/download.sh"
+
+build:
+  - shell:
+      cmds:
+        - ./configure --prefix={% exportDir %} --disable-static --docdir={% exportDir %}/share/doc/xz-{% version %}
+        - make
+        - make check
+        - make install
+      directory: "{% srcDir %}/xz-{% version %}"
+  - export: "{% exportDir %}"

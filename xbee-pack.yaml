@@ -1,0 +1,54 @@
+schema-version: 1.0
+
+description: |
+  Le paquet Xz contient des programmes de compression et de décompression de fichiers.
+  Il offre les possibilités des formats lzma et des formats de compression récents.
+  La compression de fichiers textes avec xz donne un meilleur pourcentage de compression qu'avec les commandes gzip ou bzip2 traditionnelles.
+
+  Programmes installés: lzcat (lien vers xz), lzcmp (lien vers xzdiff), lzdiff (lien vers xzdiff), lzegrep (lien vers xzgrep), lzfgrep (lien vers xzgrep),
+                        lzgrep (lien vers xzgrep), lzless (lien vers xzless), lzma (lien vers xz), lzmadec, lzmainfo, lzmore (lien vers xzmore), 
+                        unlzma (lien vers xz), unxz (lien vers xz), xz, xzcat (lien vers xz), xzcmp (lien vers xzdiff), xzdec, xzdiff, xzegrep (lien vers xzgrep), 
+                        xzfgrep (lien vers xzgrep), xzgrep, xzless et xzmore
+  Bibliothèques installées: liblzma.so
+  Répertoires installés: /usr/include/lzma et /usr/share/doc/xz-5.2.5
+
+  lzcat: Décompresse sur la sortie standard
+  lzcmp: Lance cmp sur des fichiers LZMA compressés
+  lzdiff: Lance diff sur des fichiers LZMA compressés
+  lzegrep: Lance grep sur des fichiers LZMA compressés
+  lzfgrep: Lance fgrep sur des fichiers LZMA compressés
+  lzgrep: Lance grep sur des fichiers LZMA compressés
+  lzless: Lance less sur des fichiers LZMA compressés
+  lzma: Compresse ou décompresse des fichiers en utilisant le format LZMA
+  lzmadec: Un décodeur petit et rapide pour des fichiers LZMA compressés
+  lzmainfo: Affiche les informations contenues dans l'en-tête du fichier LZMA compressé
+  lzmore: Lance more sur des fichiers LZMA compressés
+  unlzma: Décompresse des fichiers en utilisant le format LZMA
+  unxz: Décompresse des fichiers en utilisant le format XZ
+  xz: Compresse ou décompresse des fichiers en utilisant le format XZ
+  xzcat: Décompresse sur la sortie standard
+  xzcmp: Lance cmp sur des fichiers Xz compressés
+  xzdec: Un décodeur petit et rapide pour des fichiers compressés XZ
+  xzdiff: Lance diff sur des fichiers LZMA compressés
+  xzegrep: Lance egrep sur des fichiers XZ compressés
+  xzfgrep: Lance fgrep sur des fichiers XZ compressés
+  xzgrep: Lance grep sur des fichiers XZ compressés
+  xzless: Lance less sur des fichiers XZ compressés
+  xzmore: Lance more sur des fichiers XZ compressés
+  liblzma: La bibliothèque qui implémente la compression sans perte, de données rangées par blocs, utilisant les algorithmes de la chaîne Lempel-Ziv-Markov
+
+
+builder:
+  origin: ./xz-builder
+  var:
+    version: "{% version %}"
+
+
+var:
+  version: 5.2.5
+
+
+provision:
+  - copy:
+      builder: xz
+      todir: /usr
