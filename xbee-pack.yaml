@@ -38,17 +38,12 @@ description: |
   liblzma: La bibliothèque qui implémente la compression sans perte, de données rangées par blocs, utilisant les algorithmes de la chaîne Lempel-Ziv-Markov
 
 
-builder:
-  origin: ./xz-builder
-  var:
-    version: "{% version %}"
-
+builder: ./xz-builder
 
 var:
   version: 5.2.5
 
-
 provision:
   - copy:
       builder: xz
-      todir: /usr
+      todir: /
