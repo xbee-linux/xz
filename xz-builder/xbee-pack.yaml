@@ -5,7 +5,9 @@ type: builder
 
 const:
   srcDir: /usr/src
-  exportDir: /opt/xz
+
+out:
+  xz: /opt/xz
 
 provision:
   - shell: "{{ .templates }}/download.sh"
@@ -16,6 +18,5 @@ build:
         - ./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/xz-{% version %}
         - make
 #        - make check
-        - make install DESTDIR={% exportDir %}
+        - make install DESTDIR={% xz %}
       directory: "{% srcDir %}/xz-{% version %}"
-  - export: "{% exportDir %}"

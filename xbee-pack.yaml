@@ -40,7 +40,7 @@ description: |
 
 builder: ./xz-builder
 
-var:
+in:
   version: 5.2.5
 
 provision:
