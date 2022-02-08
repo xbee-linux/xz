@@ -1,5 +1,7 @@
 schema-version: 1.0
 
+type: builder
+
 description: |
   Le paquet Xz contient des programmes de compression et de décompression de fichiers.
   Il offre les possibilités des formats lzma et des formats de compression récents.
@@ -37,13 +39,18 @@ description: |
   xzmore: Lance more sur des fichiers XZ compressés
   liblzma: La bibliothèque qui implémente la compression sans perte, de données rangées par blocs, utilisant les algorithmes de la chaîne Lempel-Ziv-Markov
 
-
-builder: ./xz-builder
-
 in:
   version: 5.2.5
 
+
 provision:
-  - copy:
-      builder: xz
-      todir: /
+  - shell: "{{ .templates }}/download.sh"
+
+build:
+  - shell:
+      cmds:
+        - ./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/xz-{% version %}
+        - make
+#        - make check
+        - make install DESTDIR={% xbeeOut %}
+      directory: "{% xbeeSrc %}/xz-{% version %}"
