@@ -44,7 +44,11 @@ in:
 
 
 provision:
-  - shell: "{{ .templates }}/download.sh"
+  - url:
+      from: https://tukaani.org/xz/xz-{% version %}.tar.gz
+      todir: "{{ .pack.xbeeSrc }}"
+      wget: true
+
 
 build:
   - shell:
