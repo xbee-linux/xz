@@ -39,22 +39,22 @@ description: |
   xzmore: Lance more sur des fichiers XZ compressés
   liblzma: La bibliothèque qui implémente la compression sans perte, de données rangées par blocs, utilisant les algorithmes de la chaîne Lempel-Ziv-Markov
 
-in:
+var:
   version: 5.2.5
 
 
 provision:
   - url:
-      from: https://tukaani.org/xz/xz-{% version %}.tar.gz
-      todir: "{{ .pack.xbeeSrc }}"
+      from: https://tukaani.org/xz/xz-{{ .version }}.tar.gz
+      todir: "{{ .xbeeSrc }}"
       wget: true
 
 
 build:
   - shell:
       cmds:
-        - ./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/xz-{% version %}
+        - ./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/xz-{{ .version }}
         - make
 #        - make check
-        - make install DESTDIR={% xbeeOut %}
-      directory: "{% xbeeSrc %}/xz-{% version %}"
+        - make install DESTDIR={{ .xbeeOut }}
+      directory: "{{ .xbeeSrc }}/xz-{{ .version }}"
