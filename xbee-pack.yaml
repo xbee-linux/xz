@@ -46,7 +46,7 @@ var:
 provision:
   - url:
       from: https://tukaani.org/xz/xz-{{ .version }}.tar.gz
-      todir: "{{ .xbeeSrc }}"
+      todir: "{{ .xbee.src }}"
       wget: true
 
 
@@ -56,5 +56,5 @@ build:
         - ./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/xz-{{ .version }}
         - make
 #        - make check
-        - make install DESTDIR={{ .xbeeOut }}
-      directory: "{{ .xbeeSrc }}/xz-{{ .version }}"
+        - make install DESTDIR={{ .xbee.out }}
+      directory: "{{ .xbee.src }}/xz-{{ .version }}"
