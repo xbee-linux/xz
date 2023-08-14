@@ -46,7 +46,6 @@ var:
 provision:
   - url:
       from: https://tukaani.org/xz/xz-{{ .version }}.tar.gz
-      todir: "{{ .xbee.src }}"
       wget: true
 
 
