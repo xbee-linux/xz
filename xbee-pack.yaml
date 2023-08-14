@@ -44,9 +44,9 @@ var:
 
 
 provision:
-  - url:
-      from: https://tukaani.org/xz/xz-{{ .version }}.tar.gz
-      wget: true
+  url:
+    from: https://tukaani.org/xz/xz-{{ .version }}.tar.gz
+    wget: true
 
 
 build:
