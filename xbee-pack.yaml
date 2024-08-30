@@ -40,7 +40,8 @@ description: |
   liblzma: La bibliothèque qui implémente la compression sans perte, de données rangées par blocs, utilisant les algorithmes de la chaîne Lempel-Ziv-Markov
 
 var:
-  version: 5.2.5
+  xbee:
+    version: 5.2.5
 
 
 provision:
