@@ -1,7 +1,5 @@
 schema-version: 1.0
 
-type: builder
-
 description: |
   Le paquet Xz contient des programmes de compression et de décompression de fichiers.
   Il offre les possibilités des formats lzma et des formats de compression récents.
