@@ -50,7 +50,7 @@ provision:
 
 build:
   - shell:
-      cmds:
+      cmd:
         - ./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/xz-{{ .xbee.version }}
         - make
 #        - make check
